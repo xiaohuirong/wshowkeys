@@ -118,6 +118,20 @@ static void render_to_cairo(cairo_t *cairo, struct wsk_state *state,
 
 		int w, h;
 		if (special) {
+            if (strcmp(name, "BackSpace") == 0)
+                name = "B";
+            else if (strcmp(name, "Return") == 0)
+                name = "R";
+            else if (strcmp(name, "Shift_L") == 0)
+                name = "S";
+            else if (strcmp(name, "Control_L") == 0)
+                name = "C";
+            else if (strcmp(name, "Alt_L") == 0)
+                name = "A";
+            else if (strcmp(name, "Super_L") == 0)
+                name = "W";
+            else if (strcmp(name, "Escape") == 0)
+                name = "E";
 			get_text_size(cairo, state->font, &w, &h, NULL, scale, "<%s>", name);
 			pango_printf(cairo, state->font, scale,  "<%s>", name);
 		} else {
